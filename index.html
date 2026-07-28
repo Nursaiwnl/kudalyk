@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шақыру — Альдия</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'margarita';
+            src: url('margarita.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'aripdate';
+            src: url('aripdate.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'monamor';
+            src: url('monamor.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #fcf9f2;
+            color: #4a3e3d;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 25px;
+            position: relative;
+        }
+
+        /* Текстовые стили */
+        .script-title {
+            font-family: 'margarita', cursive;
+            font-size: 6.5rem;
+            color: #b58d55;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #7a5c3e;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 1. Секция с видео hero.webm */
+        /* 1. Секция с видео hero.webm */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+
+    /* ✂️ ТОЧНАЯ ОБРЕЗКА В ПИКСЕЛЯХ */
+    /* Порядок значений: inset(СВЕРХУ  СПРАВА  СНИЗУ  СЛЕВА) */
+    clip-path: inset(0px 0px 00px 0px);
+}
+
+/* 🌊 Плавный переход (Fade) в цвет фона к следующей секции */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Высота зоны размытия/перехода */
+    background: linear-gradient(
+        to bottom,
+        rgba(252, 249, 242, 0) 0%,
+        rgba(252, 249, 242, 1) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 2. Секция 2: Пригласительный текст */
+        .invite-section {
+            background-image: url('fon1.jpg');
+        }
+
+        .card-content {
+            padding: 20px 10px;
+        }
+
+        .text-body {
+            font-family: 'monamor';
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #5a4a42;
+        }
+
+        .hosts {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #8c683f;
+            margin-top: 15px;
+        }
+
+        /* 3. Секция 3: Детали и Карта */
+        .details-section {
+            background-image: url('fon2.png');
+        }
+
+        .event-title {
+          font-family: 'monamor';
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8c683f;
+            margin-bottom: 15px;
+        }
+
+        .date-time {
+          font-family: 'aripdate';
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #5a4a42;
+            margin-bottom: 25px;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .address-title {
+          font-family: 'aripdate';
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #8c683f;
+            margin-bottom: 5px;
+        }
+
+        .address-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #5a4a42;
+            margin-bottom: 20px;
+        }
+
+        /* Нежная ванильно-золотая кнопка */
+        .map-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #fdfbf7, #f4e8d3);
+            color: #7a5c3e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid #d4af37;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .map-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* 4. Плавающая кнопка музыки (ванильный стиль) */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #fffcf7, #f5eada);
+            border: 1.5px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(122, 92, 62, 0.25);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.2s ease;
+        }
+
+        .music-btn:active {
+            transform: scale(0.9);
+        }
+
+        .music-icon {
+            fill: #7a5c3e;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* 5. Подвал с таймером */
+        .footer-section {
+            background-color: #fdfbf7;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #f3e9d9;
+        }
+
+        .timer-container {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #d4af37;
+            border-radius: 12px;
+            padding: 15px 5px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .timer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .timer-box .number {
+          font-family: 'aripdate';
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #8c683f;
+        }
+
+        .timer-box .label {
+          font-family: 'aripdate';
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #7a5c3e;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .footer-text {
+          font-family: 'monamor';
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #5a4a42;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-wrapper">
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-btn" id="music-toggle" onclick="toggleMusic()">
+        <svg class="music-icon" id="music-icon" viewBox="0 0 24 24">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+    </div>
+
+    <section class="section hero-section">
+        <video class="bg-video" autoplay loop muted playsinline>
+            <source src="hero.webm" type="video/webm">
+        </video>
+        <div class="hero-content">
+            <h1 class="script-title">Альдия</h1>
+            <div class="subtitle">СЫРҒА САЛУ & ҚҰДАЛЫҚ</div>
+        </div>
+    </section>
+
+    <section class="section invite-section">
+        <div class="card-content">
+            <p style="font-size: 2.3rem; color: #8c683f; margin-top:14px">Құрметті қонақтар!</p>
+            <p class="text-body">Сіздерді аяулы</p>
+            <div class="script-title" style="font-size: 3.4rem; margin: 10px 0;">Альдия</div>
+            <p class="text-body">
+                қызымыздың сырға салу рәсімі және құдалық тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+            </p>
+            <div class="hosts">Той иелері:<br>Ғабит — Гүлнар</div>
+        </div>
+    </section>
+
+    <section class="section details-section">
+        <div class="card-content">
+            <div class="event-title">Той салтанаты</div>
+            <div class="date-time">
+                30 тамыз 2026 ж<br>
+                САҒАТ 12:00
+            </div>
+            <div class="address-title">Мекен-жайымыз:</div>
+            <p class="address-text">
+                <strong>"Сұлтан сарайы"</strong> мейрамханасы<br>
+                Алматы қаласы<br>
+                Қалмақан-2 шағын ауданы<br>
+                Әшімов көшесі / Сеитов 12
+            </p>
+
+            <a href="https://2gis.kz/almaty/search/Алматы%20Сеитов%2012" target="_blank" class="map-btn">
+                📍 Картаға өту
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="timer-container">
+            <div class="timer-box">
+                <span class="number" id="days">00</span>
+                <span class="label">КҮН</span>
+            </div>
+            <div class="timer-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">САҒАТ</span>
+            </div>
+            <div class="timer-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">МИНУТ</span>
+            </div>
+            <div class="timer-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">СЕКУНД</span>
+            </div>
+        </div>
+        <div class="footer-text">
+            Салтанатымыздың қадірлі қонағы болыңыздар!
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    // 1. Управление музыкой
+    const audio = document.getElementById("bg-music");
+    const icon = document.getElementById("music-icon");
+    let isPlaying = false;
+
+    // SVG иконки (Нота / Пауза)
+    const noteIcon = "M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z";
+    const pauseIcon = "M6 19h4V5H6v14zm8-14v14h4V5h-4z";
+
+    // Функция ручного переключения по кнопке
+    function toggleMusic() {
+        if (isPlaying) {
+            audio.pause();
+            icon.querySelector('path').setAttribute('d', noteIcon);
+            isPlaying = false;
+        } else {
+            audio.play().then(() => {
+                icon.querySelector('path').setAttribute('d', pauseIcon);
+                isPlaying = true;
+            });
+        }
+    }
+
+    // 🎵 Автозапуск музыки при ПЕРВОМ взаимодействии с сайтом (клик, тап или скролл)
+    function startAudioOnInteraction() {
+        if (!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                icon.querySelector('path').setAttribute('d', pauseIcon);
+                // Удаляем слушатели событий, чтобы не срабатывали повторно
+                removeInteractionListeners();
+            }).catch(() => {
+                // Если браузер всё же заблокировал — ждем следующего касания
+            });
+        }
+    }
+
+    function removeInteractionListeners() {
+        document.removeEventListener('click', startAudioOnInteraction);
+        document.removeEventListener('touchstart', startAudioOnInteraction);
+        document.removeEventListener('scroll', startAudioOnInteraction);
+    }
+
+    // Навешиваем слушатели на любые действия пользователя
+    document.addEventListener('click', startAudioOnInteraction);
+    document.addEventListener('touchstart', startAudioOnInteraction);
+    document.addEventListener('scroll', startAudioOnInteraction, { passive: true });
+
+
+    // 2. Логика обратного отсчета (Таймер)
+    const targetDate = new Date("August 30, 2026 12:00:00").getTime();
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        } else {
+            document.querySelector(".timer-container").innerHTML = "<div style='font-size:1.2rem; font-weight:bold; color:#8c683f;'>Той басталды!</div>";
+        }
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
+</body>
+</html>
